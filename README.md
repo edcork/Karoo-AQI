@@ -1,5 +1,4 @@
-# Karoo peanut locator
-
-This repo is a starter project for learning how to build a **Hammerhead Karoo Extension** using Cursor. 
+# Karoo AQI
+Attempt to build a **Hammerhead Karoo Extension** that provides AQI data. 
 
 
