@@ -1,4 +1,4 @@
-package com.example.karoo.customfield
+package com.example.karoo.aqi
 
 import android.app.Activity
 import android.os.Bundle

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.karoo.customfield"
+    namespace = "com.example.karoo.aqi"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.karoo.customfield"
+        applicationId = "com.example.karoo.aqi"
         minSdk = 23
         targetSdk = 34
         versionCode = 1

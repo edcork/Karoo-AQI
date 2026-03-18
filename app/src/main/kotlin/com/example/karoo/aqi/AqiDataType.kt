@@ -1,4 +1,4 @@
-package com.example.karoo.customfield
+package com.example.karoo.aqi
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -15,7 +15,7 @@ import io.hammerhead.karooext.models.UpdateGraphicConfig
 import io.hammerhead.karooext.models.ViewConfig
 import kotlinx.coroutines.*
 
-class PeanutDataType(extensionId: String) : DataTypeImpl(extensionId, "peanut_visual_type") {
+class AqiDataType(extensionId: String) : DataTypeImpl(extensionId, "peanut_visual_type") {
 
     // Target coordinates (31°13'5.47"N, 121°28'0.06"E)
     private val targetLocation = Location("").apply {
