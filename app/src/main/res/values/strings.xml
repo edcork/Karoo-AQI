@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Peanut locator</string>
+
+  <string name="extension_display_name">Custom Data Field</string>
+  <string name="custom_field_display_name">Custom Field</string>
+  <string name="custom_field_description">Example custom data field from a starter extension.</string>
+</resources>
+
