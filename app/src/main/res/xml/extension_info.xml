@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ExtensionInfo
-  id="peanut_locator"
-  displayName="Peanut Locator"
-  scansDevices="false" />
+  id="aqi_monitor"
+  displayName="@string/extension_display_name"
+  icon="@drawable/ic_extension"
+  scansDevices="false">
+
+  <DataType
+    typeId="aqi"
+    description="@string/custom_field_description"
+    displayName="@string/custom_field_display_name"
+    graphical="true"
+    icon="@drawable/ic_extension" />
+
+</ExtensionInfo>

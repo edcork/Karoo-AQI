@@ -10,7 +10,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
 
         val textView = TextView(this).apply {
-            text = "Peanut Locator Installed.\n\nPlease open the Extensions menu on your Karoo to configure the data field."
+            text = "AQI Monitor Installed.\n\nAdd /Downloads/aqi_config.json, then add the AQI data field in Karoo."
             textSize = 24f
             gravity = Gravity.CENTER
             setPadding(64, 64, 64, 64)
