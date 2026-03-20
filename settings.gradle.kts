@@ -31,5 +31,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Karoo peanut locator"
+rootProject.name = "Karoo-AQI"
 include(":app")

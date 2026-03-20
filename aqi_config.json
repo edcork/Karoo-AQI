@@ -1,0 +1,7 @@
+{
+  "api_key": "8f27087925beb5dfc72d540201901642",
+  "standard": "US",
+  "display_mode": "AQI",
+  "alert_threshold": 100,
+  "alert_enabled": true
+}
