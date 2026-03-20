@@ -5,11 +5,11 @@ import android.os.Environment
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
 import org.json.JSONObject
 import java.io.File
 
-class SettingsActivity : AppCompatActivity() {
+class SettingsActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
