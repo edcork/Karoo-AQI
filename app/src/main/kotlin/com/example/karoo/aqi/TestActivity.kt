@@ -2,7 +2,6 @@ package com.example.karoo.aqi
 
 import android.app.Activity
 import android.os.Bundle
-import android.widget.ScrollView
 import android.widget.TextView
 import com.example.karoo.aqi.core.AqiCalculator
 import com.example.karoo.aqi.core.AqiStandard
@@ -22,22 +21,23 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class TestActivity : Activity() {
-    private lateinit var textView: TextView
+    private lateinit var primaryTextView: TextView
+    private lateinit var secondaryTextView: TextView
     private val scope = CoroutineScope(Dispatchers.Main + Job())
     private lateinit var configManager: ConfigManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Programmatically create a simple scrollable text view
-        textView = TextView(this).apply {
-            setPadding(48, 48, 48, 48)
-            textSize = 14f
-        }
-        val scrollView = ScrollView(this).apply {
-            addView(textView)
-        }
-        setContentView(scrollView)
+        // Inflate your actual Karoo widget layout
+        setContentView(R.layout.widget_aqi)
+
+        // Bind the UI elements
+        primaryTextView = findViewById(R.id.aqi_primary)
+        secondaryTextView = findViewById(R.id.aqi_secondary)
+
+        // Set a background color so the white text is visible on the emulator
+        window.decorView.setBackgroundColor(android.graphics.Color.DKGRAY)
 
         configManager = ConfigManager(applicationContext)
 
@@ -97,6 +97,12 @@ class TestActivity : Activity() {
             log("Sub-indices calculated: ${calc.subIndices.keys.joinToString()}")
             log("--------------------------------")
 
+            // Update UI with calculated AQI number
+            val primaryText = calc.index?.toString() ?: calc.category.toString()
+            withContext(Dispatchers.Main) {
+                primaryTextView.text = primaryText
+            }
+
             // 3. Fetch and Parse Forecast
             log("📡 Fetching 3-6 hour forecast...")
             val forecastJson = fetch(forecastUrl)
@@ -110,7 +116,22 @@ class TestActivity : Activity() {
                         forecast = forecast,
                         primary = primaryPol
                     ).trend
+
                     log("📈 Forecast Trend: $trend")
+
+                    // Map the trend enum to a visual arrow for the UI
+                    val trendArrow = when (trend.toString().uppercase()) {
+                        "RISING", "WORSENING" -> "↑"
+                        "FALLING", "IMPROVING" -> "↓"
+                        "FLAT", "STABLE" -> "-"
+                        else -> trend.toString() // Fallback if the enum is named differently
+                    }
+
+                    // Update UI with the trend arrow
+                    withContext(Dispatchers.Main) {
+                        secondaryTextView.text = trendArrow
+                    }
+
                 } else {
                     log("❌ ERROR: Failed to parse forecast JSON.")
                 }
@@ -119,8 +140,7 @@ class TestActivity : Activity() {
     }
 
     private fun log(message: String) {
-        textView.append("$message\n\n")
-        android.util.Log.d("AQI_TEST", message) // <-- Add this line
+        android.util.Log.d("AQI_TEST", message)
     }
 
     private suspend fun fetch(urlString: String): String? = withContext(Dispatchers.IO) {
