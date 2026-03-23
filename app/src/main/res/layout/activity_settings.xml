@@ -1,48 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:background="#121212"
-    android:gravity="center_horizontal">
+    android:background="#121212">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AQI Monitor Setup"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="32dp" />
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="OpenWeatherMap API Key:"
-        android:textColor="#B0B0B0"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <EditText
-        android:id="@+id/input_api_key"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#1E1E1E"
-        android:textColor="#FFFFFF"
-        android:padding="12dp"
-        android:hint="Paste your 32-character key here"
-        android:textColorHint="#555555"
-        android:inputType="textVisiblePassword"
-        android:layout_marginBottom="24dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:text="AQI Monitor Setup"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_save"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="Save Configuration"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#007BFF"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="OpenWeatherMap API Key:"
+            android:textColor="#B0B0B0"
+            android:textSize="14sp" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/input_api_key"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="24dp"
+            android:background="#1E1E1E"
+            android:hint="Paste your 32-character key here"
+            android:inputType="textVisiblePassword"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#555555" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="AQI Standard:"
+            android:textColor="#B0B0B0"
+            android:textSize="14sp" />
+
+        <Spinner
+            android:id="@+id/spinner_standard"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="24dp"
+            android:background="#1E1E1E" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Display Mode:"
+            android:textColor="#B0B0B0"
+            android:textSize="14sp" />
+
+        <Spinner
+            android:id="@+id/spinner_display_mode"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="24dp"
+            android:background="#1E1E1E" />
+
+        <Switch
+            android:id="@+id/switch_alert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Enable High AQI Alerts"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Alert Threshold (e.g., 100):"
+            android:textColor="#B0B0B0"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/input_threshold"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="32dp"
+            android:background="#1E1E1E"
+            android:inputType="number"
+            android:padding="12dp"
+            android:text="100"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:backgroundTint="#007BFF"
+            android:text="Save Configuration"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>
