@@ -34,7 +34,7 @@
             android:layout_height="50dp"
             android:layout_marginBottom="24dp"
             android:background="#1E1E1E"
-            android:hint="Paste your 32-character key here"
+            android:hint="Enter your 32-character key"
             android:inputType="textVisiblePassword"
             android:padding="12dp"
             android:textColor="#FFFFFF"
@@ -75,15 +75,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:text="Enable High AQI Alerts"
+            android:text="Enable Pollution Alerts"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/label_threshold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Alert Threshold (e.g., 100):"
+            android:text="Alert Threshold (AQI):"
             android:textColor="#B0B0B0"
             android:textSize="14sp" />
 
